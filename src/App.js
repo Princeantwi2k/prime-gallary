@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import ImagesList from './component/ImagesList/ImagesList';
+import Nav from './component/Nav';
+import Upload from './component/Upload/Upload';
+import { Container } from '@mui/material';
+import AuthContext from './context/AuthContext';
+import Modal from './component/Modal';
+import MainNotification from './component/MainNotification';
+import Loading from './component/Loading';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="lg" sx={{ textAlign: 'center', mt: '3rem' }}>
+      <AuthContext>
+        <Loading />
+        <Modal />
+        <MainNotification />
+        <Nav />
+        <Upload />
+        <ImagesList />
+      </AuthContext>
+    </Container>
   );
 }
 
