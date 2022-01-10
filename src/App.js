@@ -7,6 +7,7 @@ import Modal from './component/Modal';
 import MainNotification from './component/MainNotification';
 import Loading from './component/Loading';
 
+
 function App() {
   return (
     <Container maxWidth="lg" sx={{ textAlign: 'center', mt: '3rem' }}>
