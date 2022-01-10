@@ -11,9 +11,10 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { Button } from '@mui/material';
 import { Lock } from '@mui/icons-material';
-import profileImg from '../img/profile.jpg';
 import { useAuth } from '../context/AuthContext';
 import Login from './User/Login';
+import Profile from './User/Profile';
+import AccountSettings from './User/settings/AccountSettings';
 
 export default function Nav() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,6 +48,7 @@ export default function Nav() {
   };
   return (
     <React.Fragment>
+      
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         {!currentUser ? (
           <Button startIcon={<Lock />} onClick={openLogin}>
@@ -100,11 +102,27 @@ export default function Nav() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
+        <MenuItem
+          onClick={() =>
+            setModal({
+              isOpen: true,
+              title: 'Update Profile',
+              content: <Profile />,
+            })
+          }
+        >
           <Avatar src={currentUser?.photoURL} /> Profile
         </MenuItem>
         <Divider />
-        <MenuItem>
+        <MenuItem
+          onClick={() =>
+            setModal({
+              isOpen: true,
+              title: 'Account Settings',
+              content: <AccountSettings />,
+            })
+          }
+        >
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
