@@ -29,6 +29,10 @@ body {
   margin-top: 60px;
   font-size: 2.6rem;
 }
+.navbar {
+  margin-bottom: 20px;
+  background-color: #ff4a4a;
+}
 
 /* upload form styles */
 form {
